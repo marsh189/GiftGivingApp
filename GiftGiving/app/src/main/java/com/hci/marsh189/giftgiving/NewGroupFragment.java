@@ -1,9 +1,12 @@
 package com.hci.marsh189.giftgiving;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +19,7 @@ import android.widget.TextView;
 
 public class NewGroupFragment extends Fragment {
 
+    private String username;
     private String groupName;
 
     private TextView nameText;
@@ -38,9 +42,11 @@ public class NewGroupFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        return inflater.inflate(R.layout.fragment_new_group, container, false);
     }
 
+    @TargetApi(Build.VERSION_CODES.M)
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -49,6 +55,8 @@ public class NewGroupFragment extends Fragment {
         userRV = (RecyclerView) view.findViewById(R.id.userList);
         typeDropDown = (Spinner) view.findViewById(R.id.typeDropDown);
         createGroupBtn = (Button) view.findViewById(R.id.createBtn);
+
+        username = getArguments().getString("username");
 
         String[] types = new String[]{"Type of Group", "Secret Santa"};
 

@@ -3,39 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewGroupFragment"
-    android:paddingTop="30dp"
-    android:orientation="vertical">
+    tools:context=".GroupUserAdditionFragment"
+    android:orientation="vertical"
+    android:paddingTop="20dp">
 
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Group Name"
-        android:id="@+id/groupNameEditText"
-        android:layout_margin="10dp"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:text="@string/select_friends_to_add"
         android:layout_margin="10dp"
-        android:text="Add Users"
-        android:id="@+id/addUserBtn"/>
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:id="@+id/selectFriendTitle"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:id="@+id/userList"
+        android:layout_height="250dp"
         android:layout_margin="10dp"
-        />
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/typeDropDown"
-        android:spinnerMode="dropdown"
-        android:entries="@array/group_types"
-        android:prompt="@string/type_prompt"
-        android:layout_margin="10dp"
-        />
+        android:id="@+id/friendsRecyleView"/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,15 +30,15 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel"
             android:id="@+id/cancelBtn"
+            android:text="Cancel"
             android:layout_margin="10dp"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create"
-            android:layout_margin="10dp"
-            android:id="@+id/createBtn"/>
+            android:id="@+id/doneBtn"
+            android:text="Done"
+            android:layout_margin="10dp"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -47,7 +47,13 @@ public class SQLiteHelper extends SQLiteOpenHelper
         db.close();
 
         if(result == -1)
+        {
+            String CREATE_USER_GROUP_TABLE = "CREATE TABLE " + username + "_groups (groupName TEXT PRIMARY KEY, users TEXT, type TEXT)";
+            db.execSQL(CREATE_USER_GROUP_TABLE);
+            String CREATE_USER_FRIEND_TABLE = "CREATE TABLE " + username + "_friends (friendName TEXT PRIMARY KEY, username TEXT, email TEXT)";
+            db.execSQL(CREATE_USER_FRIEND_TABLE);
             return false;
+        }
         else
             return true;
     }
@@ -66,7 +72,7 @@ public class SQLiteHelper extends SQLiteOpenHelper
         return results;
     }
 
-    public void createGroup(String username, String groupName, List<User> userList, String type)
+    public boolean createGroup(String username, String groupName, List<User> userList, String type)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -79,8 +85,44 @@ public class SQLiteHelper extends SQLiteOpenHelper
         }
 
         values.put("users", users);
-        String CREATE_USERS_TABLE = "CREATE TABLE " + username + "_groups (groupName TEXT PRIMARY KEY, users TEXT, type TEXT)";
-        db.execSQL(CREATE_USERS_TABLE);
+        long result = db.insert(username + "_groups", null, values);
+        db.close();
+        if (result == -1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 
+    }
+
+    public boolean createFriend(String username, User newFriend)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("friendName", newFriend.getName());
+        values.put("username",newFriend.getUsername());
+        values.put("email", newFriend.getEmail());
+
+        long result = db.insert(username + "_friends", null, values);
+        db.close();
+        if (result == -1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    public Cursor getFriends(String username)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor results = db.rawQuery("select * from " + username + "_friends", null);
+        return results;
     }
 }

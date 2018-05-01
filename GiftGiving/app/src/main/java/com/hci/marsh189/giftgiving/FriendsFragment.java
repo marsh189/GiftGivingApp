@@ -1,10 +1,10 @@
 package com.hci.marsh189.giftgiving;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,12 +40,10 @@ public class FriendsFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
-                /*Fragment newFriendFrag = NewFriendFragment.newInstance();
-                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                final Bundle bundle = new Bundle();
-                newFriendFrag.setArguments(bundle);
+                Fragment newFriendFrag = new NewFriendFragment();
+                FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
                 transaction.replace(R.id.frame_layout, newFriendFrag);
-                transaction.commit();*/
+                transaction.commit();
             }
         });
     }

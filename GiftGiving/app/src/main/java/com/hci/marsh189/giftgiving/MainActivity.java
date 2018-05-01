@@ -2,8 +2,8 @@ package com.hci.marsh189.giftgiving;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                                 selectedFragment = ProfileFragment.newInstance();
                                 break;
                         }
-                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
                         selectedFragment.setArguments(bundle);
                         transaction.replace(R.id.frame_layout, selectedFragment);
                         transaction.commit();
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 });
 
         //Manually displaying the first fragment - one time only
-        FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction trans = getFragmentManager().beginTransaction();
         ProfileFragment prof = new ProfileFragment();
         prof.setArguments(bundle);
         trans.replace(R.id.frame_layout, prof);
