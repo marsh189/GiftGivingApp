@@ -61,4 +61,7 @@ public class MainActivity extends AppCompatActivity {
         trans.commit();
 
     }
+    public void newFriend(){
+
+    }
 }
