@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.List;
+
 public class SQLiteHelper extends SQLiteOpenHelper
 {
     private static final int DATABASE_VERSION = 1;
@@ -55,5 +57,30 @@ public class SQLiteHelper extends SQLiteOpenHelper
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor results = db.rawQuery("select * from users where username = '" + username + "'", null);
         return results;
+    }
+
+    public Cursor getGroups(String username)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor results = db.rawQuery("select * from " + username + "_groups", null);
+        return results;
+    }
+
+    public void createGroup(String username, String groupName, List<User> userList, String type)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("groupName", groupName);
+        values.put("type", type);
+        String users = username;
+        for(int x = 0; x < userList.size(); x++)
+        {
+            users += (" | " + userList.get(x).getName());
+        }
+
+        values.put("users", users);
+        String CREATE_USERS_TABLE = "CREATE TABLE " + username + "_groups (groupName TEXT PRIMARY KEY, users TEXT, type TEXT)";
+        db.execSQL(CREATE_USERS_TABLE);
+
     }
 }

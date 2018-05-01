@@ -60,7 +60,5 @@ public class MainActivity extends AppCompatActivity {
         trans.replace(R.id.frame_layout, prof);
         trans.commit();
 
-        //Used to select an item programmatically
-        //bottomNavigationView.getMenu().getItem(2).setChecked(true);
     }
 }

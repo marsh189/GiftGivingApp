@@ -29,16 +29,14 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwordEditText;
     private Button photoBtn;
     private Button newUserBtn;
-    private Button signInBtn;
 
     private String username;
     private String password;
     private String name;
     private String email;
 
-    private SQLiteHelper db;
+    public static SQLiteHelper db;
 
-    private SQLDatabaseConnection query = new SQLDatabaseConnection();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordEditText = (EditText)findViewById(R.id.passwordTextBox);
         photoBtn = (Button)findViewById(R.id.photoBtn);
         newUserBtn = (Button)findViewById(R.id.newUserBtn);
-        signInBtn = (Button)findViewById(R.id.signIn);
+        Button signInBtn = (Button) findViewById(R.id.signIn);
 
         db = new SQLiteHelper(getApplicationContext());
 
@@ -72,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                             intent.putExtra("username", LoginActivity.this.username);
                             intent.putExtra("name", LoginActivity.this.name);
                             intent.putExtra("password", LoginActivity.this.email);
+
                             LoginActivity.this.startActivity(intent);
                         }
                         else
@@ -165,7 +164,6 @@ public class LoginActivity extends AppCompatActivity {
         Cursor results = db.getUser(username);
         if(results.getCount() > 0)
         {
-            StringBuffer buffer = new StringBuffer();
             while(results.moveToNext())
             {
                 String u = results.getString(0);
