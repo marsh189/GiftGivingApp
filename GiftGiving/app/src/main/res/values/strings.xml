@@ -6,4 +6,10 @@
     <string name="friends">Friends</string>
     <string name="groups">Groups</string>
     <string name="profile">Profile</string>
+    <string name="new_user">New User</string>
+    <string name="sign_in">Sign In</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
 </resources>

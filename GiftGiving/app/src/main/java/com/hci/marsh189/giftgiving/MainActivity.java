@@ -10,12 +10,24 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
+    private String name;
+    private String email;
+    private String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.navigation);
+        this.name = getIntent().getStringExtra("name");
+        this.username = getIntent().getStringExtra("username");
+        this.email = getIntent().getStringExtra("email");
+
+        final Bundle bundle = new Bundle();
+        bundle.putString("username", username);
+        bundle.putString("name", name);
+        bundle.putString("email", email);
 
         bottomNavigationView.setOnNavigationItemSelectedListener
                 (new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -34,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                         }
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        selectedFragment.setArguments(bundle);
                         transaction.replace(R.id.frame_layout, selectedFragment);
                         transaction.commit();
                         return true;
@@ -41,9 +54,11 @@ public class MainActivity extends AppCompatActivity {
                 });
 
         //Manually displaying the first fragment - one time only
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, ProfileFragment.newInstance());
-        transaction.commit();
+        FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+        ProfileFragment prof = new ProfileFragment();
+        prof.setArguments(bundle);
+        trans.replace(R.id.frame_layout, prof);
+        trans.commit();
 
         //Used to select an item programmatically
         //bottomNavigationView.getMenu().getItem(2).setChecked(true);
