@@ -14,6 +14,8 @@
     <string name="email">Email</string>
     <string name="type_prompt">Choose a Group Type</string>
     <string name="select_friends_to_add">Select Friends to Add</string>
+    <string name="addViaF">Add Via Facebook</string>
+    <string name="addVE">Add Via Email</string>
 
     <string-array name="group_types">
         <item>Secret Santa</item>
