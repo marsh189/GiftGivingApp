@@ -1,5 +1,6 @@
 package com.hci.marsh189.giftgiving;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -15,6 +17,8 @@ public class ProfileFragment extends Fragment {
     private String username;
     private String name;
     private String email;
+
+    public ImageButton newItemBtn;
 
     private TextView nameText;
 
@@ -43,6 +47,17 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         nameText = (TextView) view.findViewById(R.id.name);
         nameText.setText(name);
+
+        newItemBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Fragment NewItemFrag = new NewItemFrag();
+                FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_layout, NewItemFrag);
+                transaction.commit();
+            }
+        });
     }
 
 }

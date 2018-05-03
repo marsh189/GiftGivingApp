@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/whereToBuy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="284dp"
+        tools:text="Where to buy" />
+
+    <TextView
+        android:id="@+id/itemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:text="Item Name" />
+
+    <ImageView
+        android:id="@+id/itemImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_launcher_background"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="92dp" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="219dp"
+        tools:text="Price" />
+
+    <TextView
+        android:id="@+id/linkTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="355dp"
+        tools:text="Link" />
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="124dp"
+        android:layout_height="36dp"
+        android:text="Add"
+        tools:layout_editor_absoluteX="51dp"
+        tools:layout_editor_absoluteY="429dp" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="124dp"
+        android:layout_height="36dp"
+        android:text="Delete"
+        tools:layout_editor_absoluteX="218dp"
+        tools:layout_editor_absoluteY="429dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="295dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="227dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="$$$" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="295dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="303dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="60dp"
+            tools:layout_editor_absoluteY="227dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Website Link" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Store Name" />
+    </android.support.design.widget.TextInputLayout>
+</android.support.constraint.ConstraintLayout>

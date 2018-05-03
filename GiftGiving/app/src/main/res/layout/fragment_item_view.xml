@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/whereToBuy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="235dp"
+        tools:text="Where to buy: Target" />
+
+    <TextView
+        android:id="@+id/itemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="27dp"
+        tools:text="Item Name" />
+
+    <ImageView
+        android:id="@+id/itemImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_launcher_background"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="68dp" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="204dp"
+        tools:text="Price: $5.00" />
+
+    <TextView
+        android:id="@+id/linkTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="275dp"
+        tools:text="Link:" />
+
+    <Button
+        android:id="@+id/link"
+        android:layout_width="282dp"
+        android:layout_height="36dp"
+        android:text="link"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="294dp" />
+
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="124dp"
+        android:layout_height="36dp"
+        android:text="Edit"
+        tools:layout_editor_absoluteX="51dp"
+        tools:layout_editor_absoluteY="429dp" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="124dp"
+        android:layout_height="36dp"
+        android:text="Delete"
+        tools:layout_editor_absoluteX="218dp"
+        tools:layout_editor_absoluteY="429dp" />
+</android.support.constraint.ConstraintLayout>
