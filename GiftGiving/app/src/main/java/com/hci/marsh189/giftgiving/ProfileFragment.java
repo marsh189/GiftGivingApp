@@ -47,7 +47,7 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         nameText = (TextView) view.findViewById(R.id.name);
         nameText.setText(name);
-
+        newItemBtn = (ImageButton) view.findViewById(R.id.addItem);
         newItemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
